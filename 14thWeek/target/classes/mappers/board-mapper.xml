@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+	<insert id="insertBoard">
+		insert into TBOARD (username, age, sector, phone, content)
+		values
+		(#{username}, #{age},#{sector},#{phone},#{content})
+	</insert>
+
+	<update id="updateBoard">
+		update TBOARD
+		set username=#{username},sector=#{sector},content=#{content},phone=#{phone}
+		where seq=#{seq}
+	</update>
+	
+	<delete id="deleteBoard">
+		delete from TBOARD where seq=#{seq}
+	</delete>
+	
+	<select id="getBoard" resultType="board">
+		select * from TBOARD where seq=#{seq}
+	</select>
+	
+	<select id="getBoardList" resultType="board">
+		select * from TBOARD order by seq desc
+	</select>
+	
+	
+	
+	
+	
+	
+	<insert id="insertBoards">
+		insert into SBOARD (username, age, sector, phone, content)
+		values
+		(#{username}, #{age},#{sector},#{phone},#{content})
+	</insert>
+
+	<update id="updateBoards">
+		update SBOARD
+		set username=#{username},content=#{content},phone=#{phone},sector=#{sector}
+		where seq=#{seq}
+	</update>
+	
+	<delete id="deleteBoards">
+		delete from SBOARD where seq=#{seq}
+	</delete>
+	
+	<select id="getBoards" resultType="board">
+		select * from SBOARD where seq=#{seq}
+	</select>
+	
+	<select id="getBoardLists" resultType="board">
+		select * from SBOARD order by seq desc
+	</select>
+	
+	
+	
+</mapper> 
